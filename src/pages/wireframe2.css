@@ -1,0 +1,72 @@
+.tablewf2{
+    width: 80%;
+    height: auto;
+    margin: 50px auto;
+    background: #fff;
+
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th {
+    text-align: left;
+    padding: 8px;
+    border: solid 2px black;
+}
+td{
+    padding: 8px;
+    border-left: solid 2px black;
+}
+td a{
+    cursor: pointer;;
+}
+  
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.tableMenu{
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: 10px auto;
+}
+.pilihankiri{
+    display: flex;
+}
+.export{
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px gray;
+    box-shadow: 2px 2px #888888;
+    margin-right: 20px;
+    padding: 5px;
+}
+.export, .pilihankanan p{
+    cursor: pointer;
+}
+.pilihankanan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination{
+    text-align: left;
+    margin: 10px auto;
+    padding: 5px 0;
+    display: flex;
+    
+}
+.iconpagination{
+    width: fit-content;
+    height: fit-content;
+    padding: 1px;
+    border: 0.5px solid gray;
+    margin: 5px;
+    box-shadow: 1px 1px #888888;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}

@@ -1,0 +1,125 @@
+.containerHome{
+    width: 100%;
+    height: auto;
+    /* margin: 0 auto; */
+}
+.jumbotron{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #70cbf7;
+    margin-bottom: 50px;
+}
+.jumbotron p{
+    /* background:#40bbf1; */
+    color: #40bbf1;
+}
+.subcon1{
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 50px;
+    /* background: pink; */
+    flex-wrap: wrap;
+
+}
+.contentSubcon1{
+    width: 23%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.iconSubcon1{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #9bdcfa;
+    border: solid 4px #9bdcfa;
+    margin-bottom: 30px;
+}
+.subcon2{
+    width: 80%;
+    height: auto;
+    margin: 50px auto 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+.contentSubcon2{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+}
+.slide{
+    color: #bae7fa;
+    font-size: 50px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: fit-content;
+    display: flex;
+}
+.slide :hover{
+    color: #40bbf1; 
+}
+.subcon3{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+}
+.contentSubcon3{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+.subcontentSubcon3{
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+.isiSubcontentSubcon3{
+    box-sizing: border-box;
+    padding: 0px 20px 0px 0;
+    margin-right: 10px;
+    width: 48%;
+    margin-bottom: 0px;
+}
+.jumbotronSubcon3{
+    background: #afe3f9;
+    flex: 1;
+    height: auto;
+}
+.subcon4{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto
+}
+.divSubcon4{
+    width: 30%;
+    height: auto;
+}
+.contentSubcon4{
+    justify-content: space-between;
+    align-items: center;
+
+    display: flex;
+}

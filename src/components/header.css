@@ -1,0 +1,46 @@
+.containerHeader, .header{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items:  center;
+    justify-content: space-between;
+    background: #0b72a1;
+    text-align: center;
+
+}
+.header{
+    width: 80%;
+}
+.menukiri,.menutengah,.menukanan{
+    margin: 10px 20px;
+    padding: 10;
+    box-sizing: border-box;
+}
+.menukiri{
+    flex: 1;
+    background: #97daf7;
+    height: 30px;
+}
+.menutengah{
+    display: flex;
+    justify-content: space-between;
+    flex: 3;
+}
+.menukanan{
+    flex: 1;
+    background: #97daf7;
+    height: 20px;
+
+
+}
+.daftarmenu{
+    margin: 0 20px;
+    background: #97daf7;
+    width: 20%;
+    height: 20px;
+}
+.logo{
+    padding: 10px;
+}
