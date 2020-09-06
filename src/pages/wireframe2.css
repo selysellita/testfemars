@@ -3,7 +3,9 @@
     height: auto;
     margin: 50px auto;
     background: #fff;
-
+}
+.tabledata{
+    overflow-x: auto;
 }
 table{
     width: 100%;
@@ -62,9 +64,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     width: fit-content;
     height: fit-content;
     padding: 1px;
-    border: 0.5px solid gray;
     margin: 5px;
-    box-shadow: 1px 1px #888888;
     justify-content: center;
     align-items: center;
     display: flex;

@@ -15,10 +15,10 @@ class Home extends Component {
                 <div className="contentSubcon1">
                     <div className='iconSubcon1'></div>
                     {/* <div className="headerSubcon1"></div> */}
-                    <div className="line" style={{width:'100px'}}></div> <br/>
-                    <div className="line" style={{width:'120px', background:'#97d9f8'}}></div>
-                    <div className="line" style={{width:'150px', background:'#97d9f8'}}></div>
-                    <div className="line" style={{width:'120px', background:'#97d9f8'}}></div>
+                    <div className="line" style={{width:'15vw'}}></div> 
+                    <div className="line" style={{width:'18vw', background:'#97d9f8'}}></div>
+                    <div className="line" style={{width:'18vw', background:'#97d9f8'}}></div>
+                    <div className="line" style={{width:'12vw', background:'#97d9f8'}}></div>
                     
                 </div>
             )
@@ -29,9 +29,9 @@ class Home extends Component {
         return(
             <div className="contentSubcon2">                    
                 <div className="line" style={{width:'200px', background:'#40bcf2'}}></div> <br/>
-                <div className="line" style={{width:'500px', background:'#97d9f8'}}></div>
-                <div className="line" style={{width:'500px', background:'#97d9f8'}}></div>
-                <div className="line" style={{width:'300px', background:'#97d9f8'}}></div>
+                <div className="line" style={{width:'60vw', background:'#97d9f8'}}></div>
+                <div className="line" style={{width:'60vw', background:'#97d9f8'}}></div>
+                <div className="line" style={{width:'40vw', background:'#97d9f8'}}></div>
             </div>
         )    
     }
@@ -42,9 +42,9 @@ class Home extends Component {
             return(
                 <div className='isiSubcontentSubcon3'>
                     <div className="line" style={{width:'100px', background:'#7fd2f5'}}></div>
-                    <div className="line" style={{width:'100%', background:'#afe3f9'}}></div>
-                    <div className="line" style={{width:'100%', background:'#afe3f9'}}></div>
-                    <div className="line" style={{width:'200px', background:'#afe3f9'}}></div>
+                    <div className="line" style={{width:'23vw', background:'#afe3f9'}}></div>
+                    <div className="line" style={{width:'23vw', background:'#afe3f9'}}></div>
+                    <div className="line" style={{width:'15vw', background:'#afe3f9'}}></div>
                 </div>
 
             )

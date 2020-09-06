@@ -20,7 +20,8 @@
 }
 .menukiri{
     flex: 1;
-    background: #97daf7;
+    width: 50px;
+    /* background: #97daf7; */
     height: 30px;
 }
 .menutengah{
@@ -43,4 +44,60 @@
 }
 .logo{
     padding: 10px;
+}
+.burgermenu{
+    display: none;
+    flex: 1;
+    /* text-align: right; */
+    /* width: 50%; */
+    /* background: pink; */
+    height: 20px;
+    justify-content:flex-end;
+    align-items: flex-end;    
+}
+.lineburger{
+    width: 25px;
+    height: 5px;
+    margin-bottom: 3px;
+    background: #97daf7;
+}
+@media screen and (max-width:800px){
+    .menutengah{
+        display: none;
+    }
+    .menukanan{
+        display: none;
+    }
+    .burgermenu{
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+        color: #97daf7;
+        font-size: 25px;
+    }
+    .menuList{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 20vw;
+        height: fit-content;
+        background: #0b72a1;
+        top:50px;
+        margin-right: 10%;
+        right: 0;
+        justify-content: center;
+        overflow: visible;
+        text-align: center;
+
+    }
+    .menuList a{
+        padding: 10px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #003263;
+    }
+    .menuList a:hover{
+        background:  #003263;
+        color: #f3cc55;
+    }
 }

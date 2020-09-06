@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 // } from "react-router-dom";
 import './wireframe2.css'
 import _, { filter } from 'lodash'
-
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
 import { FaPrint,FaCaretDown, FaCaretUp,FaAngleDoubleLeft,FaAngleLeft,FaAngleDoubleRight, FaAngleRight} from "react-icons/fa";
 
 class Wireframe2 extends Component {
@@ -87,22 +88,26 @@ class Wireframe2 extends Component {
         totalPage:0,
         limit:3,
         page:1,
-        offset:0
+        start:0,
+        end:0
     }
 
     componentDidMount(){
         this.setState({
             filter:this.state.data,
-            totalPage: Math.ceil(this.state.data.length/this.state.limit) 
+            totalPage: Math.ceil(this.state.data.length/this.state.limit),
+            end:this.state.limit 
         })
-    }
+        // this.state.page===1?this.setState({start:0,end:this.state.limit}):null
+    }    
 
     renderTable=()=>{
-        return this.state.data.map((val,index)=>{
+        var data=this.tablePerPage()
+        return data.map((val,index)=>{
             return(
                 <tr key={index}>
                     <td><input type="checkbox" /></td>
-                    <td>{val.api}</td>
+                    <td >{val.api}</td>
                     <td>{val.description}</td>
                     <td>{val.auth}</td>
                     <td>{val.https}</td>
@@ -113,9 +118,9 @@ class Wireframe2 extends Component {
     }
 
     tablePerPage=()=>{
-        var {data,offset,limit}=this.state
-        var data=data.slice(offset,limit)
-
+        var {data,start,end}=this.state
+        var datapage=data.slice(start,end)
+        return datapage                
     }
 
     options=['apiKey', 'OAuth', 'No']
@@ -127,6 +132,7 @@ class Wireframe2 extends Component {
 
     sortTable=()=>{
         const { sort, data } = this.state
+        // var datapage=this.tablePerPage()
         this.setState({sort:!sort})
         if(sort){
             this.setState({
@@ -135,18 +141,19 @@ class Wireframe2 extends Component {
             })
         }else{
             this.setState({
-                data: _.sortBy(data, ['api']),
-                data:data.reverse(),
+                data: _.sortBy(data, ['api']).reverse(),
+                // data:data.reverse(),
                 direction: 'ascending'    
             })
         }
     }
     onFilterSelect=(e)=>{
+        var {filter,limit}= this.state
         console.log('filter jalan')
         var authFilter=e.target.value
-        var filter=this.state.filter.filter((val)=>{
+        var filter=filter.filter((val)=>{
             if(authFilter==='all'){
-                return this.state.filter
+                return filter
             }else{
                 return(
                     val.auth.toLowerCase().includes(authFilter.toLowerCase())
@@ -154,12 +161,46 @@ class Wireframe2 extends Component {
                 }
             })
         // var totalPage=Math.ceil(filter.length)
-        this.setState({data:filter, totalPage:Math.ceil(filter.length/this.state.limit)})
+        this.setState({page:1, start:0, end:limit, data:filter, totalPage:Math.ceil(filter.length/limit)})
     }
 
+    loopTableBody=()=>{
+        let bodytab = []
+        this.state.data.map((val, index) => {
+            bodytab.push([
+                val.api,
+                val.description,
+                val.auth,
+                val.https,
+                val.link
+            ])
+        })
+        return bodytab
+    }
+
+    exportPdf=()=>{
+        const doc = new jsPDF()
+        doc.autoTable({
+            head: [['API', 'Description', 'Auth', 'HTTPS', 'Link']],
+            body: this.loopTableBody()
+        })
+
+        doc.save('Table.pdf')
+    }
+
+    printPdf=()=>{
+        const doc = new jsPDF()
+        doc.autoTable({
+            head: [['API', 'Description', 'Auth', 'HTTPS', 'Link']],
+            body: this.loopTableBody()
+        })
+
+        // doc.autoPrint()
+        doc.output('dataurlnewwindow')
+    }
 
     render() { 
-        var {direction, page, totalPage, offset, limit}=this.state
+        var {direction, page, totalPage, start, end, limit}=this.state
         return ( 
             <div className="tablewf2">
                 <div className='tableMenu'>
@@ -171,13 +212,13 @@ class Wireframe2 extends Component {
                         </select>                      
                     </div>
                     <div className="pilihankanan">
-                        <div className="export">
+                        <div className="export" onClick={() => this.exportPdf()}>
                            <p> Export </p>                           
                         </div>
-                        <p><FaPrint style={{fontSize:'25px'}}/></p>
+                        <p><FaPrint onClick={() => this.printPdf()} style={{fontSize:'25px'}}/></p>
                     </div>
                 </div>
-                <div>
+                <div className='tabledata'>
                     <table>
                         <thead>
                             <tr>
@@ -196,25 +237,33 @@ class Wireframe2 extends Component {
                         </thead>
                         <tbody>
                             {this.renderTable()}
+                            {/* {this.tablePerPage()} */}
                         </tbody>
                     </table>
                 </div>
                 <div className='pagination'>
                     <div className="iconpagination">
-                        <FaAngleDoubleLeft />
+                        <button disabled={page===1} onClick={()=>{this.setState({page:1,start:0,end:limit})}} >
+                            <FaAngleDoubleLeft />
+                        </button>
                     </div>
-                    <div >
-                        <button disabled onClick={()=>{this.setState({offset:limit, limit:limit-3})}}>
+                    <div className="iconpagination" >
+                        <button disabled={page===1} 
+                            onClick={ ()=>{this.setState({start:start-limit, end:end-limit, page:page-1})}}>
                             <FaAngleLeft />
                         </button>
                     </div>
                     <p>{page} of {totalPage}</p>
                     <div className="iconpagination">
-                        <FaAngleRight onClick={()=>{this.setState({offset:limit, limit:limit+3})}}/> {this.state.offset}, {this.state.limit}
+                        <button disabled={page===totalPage} onClick={()=>{this.setState({start:end, end:end+limit, page:page+1})}}>
+                            <FaAngleRight /> 
+                        </button>
                     </div>
                     
                     <div className="iconpagination">
-                        <FaAngleDoubleRight/>
+                        <button disabled={page===totalPage} onClick={()=>{this.setState({page:totalPage,start:(limit*totalPage)-limit,end:limit*totalPage})}}>
+                            <FaAngleDoubleRight/>
+                        </button>
                     </div>
                 </div>
                 <a href='/'>Go To Home</a> 

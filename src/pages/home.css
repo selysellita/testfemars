@@ -43,7 +43,7 @@
     border-radius: 50%;
     background: #9bdcfa;
     border: solid 4px #9bdcfa;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .subcon2{
     width: 80%;
@@ -88,6 +88,8 @@
     width: 100%;
     height: auto;
     justify-content: space-between;
+    flex-direction: row;
+    /* background: red; */
 }
 .subcontentSubcon3{
     flex: 2;
@@ -99,12 +101,16 @@
     padding: 0px 20px 0px 0;
     margin-right: 10px;
     width: 48%;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    /* background: chartreuse; */
+    overflow: hidden;
 }
 .jumbotronSubcon3{
     background: #afe3f9;
     flex: 1;
-    height: auto;
+    max-height: 500px;
+    min-height: 300px;
+    margin-bottom: 20px;
 }
 .subcon4{
     width: 80%;
@@ -122,4 +128,26 @@
     align-items: center;
 
     display: flex;
+}
+
+
+
+@media screen and (max-width:950px){
+    .contentSubcon3{
+        flex-direction: column;
+    }
+    .subcontentSubcon3{
+        flex: 1;
+        justify-content: space-between;
+    }
+    .isiSubcontentSubcon3{
+        width: 45%;
+        margin-right: 0px;
+    }
+}
+@media screen and (max-width:600px){
+    .contentSubcon1{
+        width: 48%;
+        margin-bottom: 20px;
+    }
 }
